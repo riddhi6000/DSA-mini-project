@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hospital Dashboard</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <div class="dashboard">
+        <h1>🏥 Hospital Management Dashboard</h1>
+
+        <div class="controls">
+            <button id="addPatientBtn">➕ Add Patient</button>
+            <button id="deletePatientBtn">❌ Delete Patient</button>
+            <button id="undoBtn">↩️ Undo Delete</button>
+            <button id="sortBtn">🔃 Sort by Urgency</button>
+
+            <label for="filterUrgency">Filter by Urgency:</label>
+            <select id="filterUrgency">
+                <option value="All">All</option>
+                <option value="High">High</option>
+                <option value="Medium">Medium</option>
+                <option value="Low">Low</option>
+            </select>
+
+            <input type="text" id="searchInput" placeholder="Search by Name or ID" />
+            <button id="searchBtn">🔍 Search</button>
+        </div>
+
+        <table id="patientTable">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Disease</th>
+                    <th>Urgency</th>
+                    <th>Admission Date</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+    <!-- ✅ Add Patient Modal -->
+    <div id="addModal" class="modal">
+        <div class="modal-content">
+            <h3>Add New Patient</h3>
+            <input type="number" id="modalId" placeholder="Patient ID" />
+            <input type="text" id="modalName" placeholder="Name" />
+            <input type="number" id="modalAge" placeholder="Age" />
+            <input type="text" id="modalDisease" placeholder="Disease" />
+            <select id="modalUrgency">
+                <option value="High">High</option>
+                <option value="Medium">Medium</option>
+                <option value="Low">Low</option>
+            </select>
+            <div class="modal-buttons">
+                <button id="modalAddBtn">Add</button>
+                <button id="modalCloseBtn">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ✅ Delete Patient Modal -->
+    <div id="deleteModal" class="modal">
+        <div class="modal-content">
+            <h3>Delete Patient</h3>
+            <input type="number" id="deleteId" placeholder="Enter Patient ID" />
+            <div class="modal-buttons">
+                <button id="confirmDeleteBtn">Delete</button>
+                <button id="closeDeleteBtn">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ✅ Custom Popup -->
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <p id="popupMessage"></p>
+            <button id="popupOkBtn">OK</button>
+        </div>
+    </div>
+
+    <script src="dsa.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
