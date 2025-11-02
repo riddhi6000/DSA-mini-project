@@ -1,7 +1,3 @@
-/* =========================================
-   NEW PROFESSIONAL STYLES (v2 with Navbar)
-   ========================================= */
-
 /* === 1. Global & Theme === */
 :root {
   --font-family: "Poppins", sans-serif;
@@ -115,6 +111,11 @@ h3 {
   gap: 15px;
   max-width: 350px;
   margin: 20px auto 0;
+}
+
+.login-container h1,
+.login-container h3 {
+  text-align: center;
 }
 
 #loginMessage {

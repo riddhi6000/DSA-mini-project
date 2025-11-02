@@ -1,4 +1,5 @@
 // Implements LinkedList, Queue, Stack, and sorting/searching functions.
+
 // Linked List for Patients
 class Node {
   constructor(patient) {
@@ -87,4 +88,38 @@ class Queue {
   display() {
     return [...this.items];
   }
+}
+
+// =================== SORTING ALGORITHMS ===================
+
+function bubbleSortPatients(arr) {
+  // Create a copy of the array to avoid changing the original list
+  const a = [...arr]; 
+  const n = a.length;
+  if (n === 0) return a;
+
+  // Define the sorting order
+  const urgencyOrder = { High: 1, Medium: 2, Low: 3 };
+
+  for (let i = 0; i < n - 1; i++) {
+    let swapped = false;
+    for (let j = 0; j < n - i - 1; j++) {
+      
+      // Get the urgency "value" for comparison
+      const urgencyA = urgencyOrder[a[j].urgency];
+      const urgencyB = urgencyOrder[a[j + 1].urgency];
+
+      // If patient A > patient B, swap them
+      if (urgencyA > urgencyB) {
+        // Standard swap
+        let temp = a[j];
+        a[j] = a[j + 1];
+        a[j + 1] = temp;
+        swapped = true;
+      }
+    }
+    // If no two elements were swapped by inner loop, then break
+    if (swapped == false) break;
+  }
+  return a; // Return the new sorted array
 }
